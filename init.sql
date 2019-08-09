@@ -18,7 +18,7 @@ Date: 2018-04-02 17:10:34
 -- ----------------------------
 -- Table structure for T_DEPT
 -- ----------------------------
---DROP TABLE "MRBIRD"."T_DEPT";
+-- DROP TABLE "MRBIRD"."T_DEPT";
 CREATE TABLE "MRBIRD"."T_DEPT" (
   "DEPT_ID" NUMBER NOT NULL ,
   "PARENT_ID" NUMBER NOT NULL ,
@@ -50,7 +50,7 @@ INSERT INTO "MRBIRD"."T_DEPT" VALUES ('6', '0', '测试部', null, TO_DATE('2018
 -- ----------------------------
 -- Table structure for T_DICT
 -- ----------------------------
---DROP TABLE "MRBIRD"."T_DICT";
+-- DROP TABLE "MRBIRD"."T_DICT";
 CREATE TABLE "MRBIRD"."T_DICT" (
   "DICT_ID" NUMBER NOT NULL ,
   "KEY" NUMBER NOT NULL ,
@@ -87,7 +87,7 @@ INSERT INTO "MRBIRD"."T_DICT" VALUES ('33', '1', '失败', 'status', 't_job_log'
 -- ----------------------------
 -- Table structure for T_JOB
 -- ----------------------------
---DROP TABLE "MRBIRD"."T_JOB";
+-- DROP TABLE "MRBIRD"."T_JOB";
 CREATE TABLE "MRBIRD"."T_JOB" (
   "JOB_ID" NUMBER NOT NULL ,
   "BEAN_NAME" VARCHAR2(100 BYTE) NOT NULL ,
@@ -123,7 +123,7 @@ INSERT INTO "MRBIRD"."T_JOB" VALUES ('11', 'testTask', 'test2', null, '0/5 * * *
 -- ----------------------------
 -- Table structure for T_JOB_LOG
 -- ----------------------------
---DROP TABLE "MRBIRD"."T_JOB_LOG";
+-- DROP TABLE "MRBIRD"."T_JOB_LOG";
 CREATE TABLE "MRBIRD"."T_JOB_LOG" (
   "LOG_ID" NUMBER NOT NULL ,
   "JOB_ID" NUMBER NOT NULL ,
@@ -164,7 +164,7 @@ INSERT INTO "MRBIRD"."T_JOB_LOG" VALUES ('2397', '3', 'testTask', 'test', 'hello
 -- ----------------------------
 -- Table structure for T_LOG
 -- ----------------------------
---DROP TABLE "MRBIRD"."T_LOG";
+-- DROP TABLE "MRBIRD"."T_LOG";
 CREATE TABLE "MRBIRD"."T_LOG" (
   "ID" NUMBER(20) NOT NULL ,
   "USERNAME" VARCHAR2(50 BYTE) NULL ,
@@ -219,7 +219,7 @@ INSERT INTO "MRBIRD"."T_LOG" VALUES ('735', 'MrBird', '执行任务', '13', 'cc.
 -- ----------------------------
 -- Table structure for T_MENU
 -- ----------------------------
---DROP TABLE "MRBIRD"."T_MENU";
+-- DROP TABLE "MRBIRD"."T_MENU";
 CREATE TABLE "MRBIRD"."T_MENU" (
   "MENU_ID" NUMBER NOT NULL ,
   "PARENT_ID" NUMBER NOT NULL ,
@@ -301,7 +301,7 @@ INSERT INTO "MRBIRD"."T_MENU" VALUES ('110', '109', '删除日志', null, 'jobLo
 -- ----------------------------
 -- Table structure for T_ROLE
 -- ----------------------------
---DROP TABLE "MRBIRD"."T_ROLE";
+-- DROP TABLE "MRBIRD"."T_ROLE";
 CREATE TABLE "MRBIRD"."T_ROLE" (
   "ROLE_ID" NUMBER NOT NULL ,
   "ROLE_NAME" VARCHAR2(100 BYTE) NOT NULL ,
@@ -455,7 +455,7 @@ INSERT INTO "MRBIRD"."T_ROLE_MENU" VALUES ('64', '58');
 -- ----------------------------
 -- Table structure for T_USER
 -- ----------------------------
---DROP TABLE "MRBIRD"."T_USER";
+-- DROP TABLE "MRBIRD"."T_USER";
 CREATE TABLE "MRBIRD"."T_USER" (
   "USER_ID" NUMBER NOT NULL ,
   "USERNAME" VARCHAR2(50 BYTE) NOT NULL ,
@@ -740,7 +740,7 @@ ALTER TABLE "MRBIRD"."T_USER_ROLE" ADD CHECK ("ROLE_ID" IS NOT NULL);
 -- ----------------------------
 -- Sequence structure for SEQ_DEPT
 -- ----------------------------
---DROP SEQUENCE "MRBIRD"."SEQ_DEPT";
+-- DROP SEQUENCE "MRBIRD"."SEQ_DEPT";
 CREATE SEQUENCE "MRBIRD"."SEQ_DEPT"
 INCREMENT BY 1
 MINVALUE 1
@@ -751,7 +751,7 @@ CACHE 20;
 -- ----------------------------
 -- Sequence structure for SEQ_DICT
 -- ----------------------------
---DROP SEQUENCE "MRBIRD"."SEQ_DICT";
+-- DROP SEQUENCE "MRBIRD"."SEQ_DICT";
 CREATE SEQUENCE "MRBIRD"."SEQ_DICT"
 INCREMENT BY 1
 MINVALUE 1
@@ -762,7 +762,7 @@ CACHE 20;
 -- ----------------------------
 -- Sequence structure for SEQ_JOB
 -- ----------------------------
---DROP SEQUENCE "MRBIRD"."SEQ_JOB";
+-- DROP SEQUENCE "MRBIRD"."SEQ_JOB";
 CREATE SEQUENCE "MRBIRD"."SEQ_JOB"
 INCREMENT BY 1
 MINVALUE 1
@@ -773,7 +773,7 @@ CACHE 20;
 -- ----------------------------
 -- Sequence structure for SEQ_JOB_LOG
 -- ----------------------------
---DROP SEQUENCE "MRBIRD"."SEQ_JOB_LOG";
+-- DROP SEQUENCE "MRBIRD"."SEQ_JOB_LOG";
 CREATE SEQUENCE "MRBIRD"."SEQ_JOB_LOG"
 INCREMENT BY 1
 MINVALUE 1
@@ -784,7 +784,7 @@ CACHE 20;
 -- ----------------------------
 -- Sequence structure for SEQ_LOG
 -- ----------------------------
---DROP SEQUENCE "MRBIRD"."SEQ_LOG";
+-- DROP SEQUENCE "MRBIRD"."SEQ_LOG";
 CREATE SEQUENCE "MRBIRD"."SEQ_LOG"
 INCREMENT BY 1
 MINVALUE 1
@@ -795,7 +795,7 @@ CACHE 20;
 -- ----------------------------
 -- Sequence structure for SEQ_MENU
 -- ----------------------------
---DROP SEQUENCE "MRBIRD"."SEQ_MENU";
+-- DROP SEQUENCE "MRBIRD"."SEQ_MENU";
 CREATE SEQUENCE "MRBIRD"."SEQ_MENU"
 INCREMENT BY 1
 MINVALUE 1
@@ -806,7 +806,7 @@ CACHE 20;
 -- ----------------------------
 -- Sequence structure for SEQ_ROLE
 -- ----------------------------
---DROP SEQUENCE "MRBIRD"."SEQ_ROLE";
+-- DROP SEQUENCE "MRBIRD"."SEQ_ROLE";
 CREATE SEQUENCE "MRBIRD"."SEQ_ROLE"
 INCREMENT BY 1
 MINVALUE 1
@@ -817,7 +817,7 @@ CACHE 20;
 -- ----------------------------
 -- Sequence structure for SEQ_USER
 -- ----------------------------
---DROP SEQUENCE "MRBIRD"."SEQ_USER";
+-- DROP SEQUENCE "MRBIRD"."SEQ_USER";
 CREATE SEQUENCE "MRBIRD"."SEQ_USER"
 INCREMENT BY 1
 MINVALUE 1
