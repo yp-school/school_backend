@@ -1,5 +1,16 @@
 package cc.mrbird.system.service.impl;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
+import org.apache.shiro.SecurityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import cc.mrbird.common.service.impl.BaseService;
 import cc.mrbird.common.util.MD5Utils;
 import cc.mrbird.system.dao.UserMapper;
@@ -9,18 +20,7 @@ import cc.mrbird.system.domain.UserRole;
 import cc.mrbird.system.domain.UserWithRole;
 import cc.mrbird.system.service.UserRoleService;
 import cc.mrbird.system.service.UserService;
-import org.apache.commons.lang.StringUtils;
-import org.apache.shiro.SecurityUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 
 @Service("userService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
@@ -50,9 +50,6 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
 	@Override
 	public List<User> findUserWithDept(User user) {
 		try {
-			if(StringUtils.isNotBlank(user.getUsername())){
-				user.setUsername(user.getUsername().toLowerCase());
-			}
 			return this.userMapper.findUserWithDept(user);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,7 +60,6 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
 	@Override
 	@Transactional
 	public void registUser(User user) {
-		user.setUserId(this.getSequence(User.SEQ));
 		user.setCrateTime(new Date());
 		user.setTheme(User.DEFAULT_THEME);
 		user.setAvatar(User.DEFAULT_AVATAR);
@@ -89,7 +85,6 @@ public class UserServiceImpl extends BaseService<User> implements UserService {
 	@Override
 	@Transactional
 	public void addUser(User user, Long[] roles) {
-		user.setUserId(this.getSequence(User.SEQ));
 		user.setCrateTime(new Date());
 		user.setTheme(User.DEFAULT_THEME);
 		user.setAvatar(User.DEFAULT_AVATAR);

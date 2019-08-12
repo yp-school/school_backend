@@ -80,7 +80,6 @@ public class JobServiceImpl extends BaseService<Job> implements JobService {
 	@Override
 	@Transactional
 	public void addJob(Job job) {
-		job.setJobId(this.getSequence(Job.SEQ));
 		job.setCreateTime(new Date());
 		job.setStatus(Job.ScheduleStatus.PAUSE.getValue());
 		this.save(job);

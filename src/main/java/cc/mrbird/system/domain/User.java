@@ -4,13 +4,14 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import cc.mrbird.common.annotation.ExportConfig;
 
-@Table(name = "T_USER")
+@Table(name = "t_user")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = -4852732617765810959L;
@@ -34,9 +35,8 @@ public class User implements Serializable {
 
 	public static final String SEX_UNKNOW = "2";
 
-	public static final String SEQ = "seq_user";
-
 	@Id
+	@GeneratedValue(generator = "JDBC")
 	@Column(name = "USER_ID")
 	private Long userId;
 
@@ -88,7 +88,7 @@ public class User implements Serializable {
 
 	@Column(name = "DESCRIPTION")
 	private String description;
-	
+
 	@Transient
 	private String roleName;
 

@@ -44,7 +44,7 @@ public class DeptServiceImpl extends BaseService<Dept> implements DeptService {
 	public List<Dept> findAllDepts(Dept dept) {
 		try {
 			Example example = new Example(Dept.class);
-			if(StringUtils.isNotBlank(dept.getDeptName())){
+			if (StringUtils.isNotBlank(dept.getDeptName())) {
 				example.createCriteria().andCondition("dept_name=", dept.getDeptName());
 			}
 			example.setOrderByClause("dept_id");
@@ -53,6 +53,7 @@ public class DeptServiceImpl extends BaseService<Dept> implements DeptService {
 			e.printStackTrace();
 			return new ArrayList<>();
 		}
+
 	}
 
 	@Override
@@ -73,7 +74,6 @@ public class DeptServiceImpl extends BaseService<Dept> implements DeptService {
 		Long parentId = dept.getParentId();
 		if (parentId == null)
 			dept.setParentId(0L);
-		dept.setDeptId(this.getSequence(Dept.SEQ));
 		dept.setCreateTime(new Date());
 		this.save(dept);
 	}

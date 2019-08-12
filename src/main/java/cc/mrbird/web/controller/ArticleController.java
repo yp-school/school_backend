@@ -13,11 +13,12 @@ import cc.mrbird.common.util.UrlUtils;
 
 @Controller
 public class ArticleController {
-	
+
 	@Log("获取每日一文信息")
 	@RequestMapping("article")
 	@RequiresPermissions("article:list")
 	public String index() {
+
 		return "web/article/article";
 	}
 

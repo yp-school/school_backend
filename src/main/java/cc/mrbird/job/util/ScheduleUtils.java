@@ -13,8 +13,6 @@ import org.quartz.TriggerKey;
 
 import cc.mrbird.job.domain.Job;
 
-import java.util.Objects;
-
 /**
  * 定时任务工具类
  * @author Administrator
@@ -26,14 +24,14 @@ public class ScheduleUtils {
 	/**
 	 * 获取触发器key
 	 */
-	private static TriggerKey getTriggerKey(Long jobId) {
+	public static TriggerKey getTriggerKey(Long jobId) {
 		return TriggerKey.triggerKey(JOB_NAME + jobId);
 	}
 
 	/**
 	 * 获取jobKey
 	 */
-	private static JobKey getJobKey(Long jobId) {
+	public static JobKey getJobKey(Long jobId) {
 		return JobKey.jobKey(JOB_NAME + jobId);
 	}
 
@@ -94,7 +92,7 @@ public class ScheduleUtils {
 			CronTrigger trigger = getCronTrigger(scheduler, scheduleJob.getJobId());
 
 			// 按新的cronExpression表达式重新构建trigger
-			trigger = Objects.requireNonNull(trigger).getTriggerBuilder().withIdentity(triggerKey).withSchedule(scheduleBuilder).build();
+			trigger = trigger.getTriggerBuilder().withIdentity(triggerKey).withSchedule(scheduleBuilder).build();
 
 			// 参数
 			trigger.getJobDataMap().put(Job.JOB_PARAM_KEY, scheduleJob);

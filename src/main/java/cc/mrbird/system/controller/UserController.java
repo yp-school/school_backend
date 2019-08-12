@@ -31,7 +31,6 @@ public class UserController extends BaseController {
 
 	private static final String ON = "on";
 
-	@Log("获取用户信息")
 	@RequestMapping("user")
 	@RequiresPermissions("user:list")
 	public String index(Model model) {
@@ -62,6 +61,7 @@ public class UserController extends BaseController {
 		}
 	}
 
+	@Log("获取用户信息")
 	@RequestMapping("user/list")
 	@ResponseBody
 	public Map<String, Object> userList(QueryRequest request, User user) {
@@ -131,9 +131,9 @@ public class UserController extends BaseController {
 	public ResponseBo addUser(User user, Long[] roles) {
 		try {
 			if (ON.equalsIgnoreCase(user.getStatus()))
-				user.setStatus("1");
+				user.setStatus(User.STATUS_VALID);
 			else
-				user.setStatus("0");
+				user.setStatus(User.STATUS_LOCK);
 			this.userService.addUser(user, roles);
 			return ResponseBo.ok("新增用户成功！");
 		} catch (Exception e) {
@@ -149,9 +149,9 @@ public class UserController extends BaseController {
 	public ResponseBo updateUser(User user, Long[] rolesSelect) {
 		try {
 			if (ON.equalsIgnoreCase(user.getStatus()))
-				user.setStatus("1");
+				user.setStatus(User.STATUS_VALID);
 			else
-				user.setStatus("0");
+				user.setStatus(User.STATUS_LOCK);
 			this.userService.updateUser(user, rolesSelect);
 			return ResponseBo.ok("修改用户成功！");
 		} catch (Exception e) {

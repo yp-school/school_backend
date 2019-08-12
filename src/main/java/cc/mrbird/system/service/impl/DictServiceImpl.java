@@ -23,11 +23,11 @@ public class DictServiceImpl extends BaseService<Dict> implements DictService {
 		try {
 			Example example = new Example(Dict.class);
 			Criteria criteria = example.createCriteria();
-			if (StringUtils.isNotBlank(dict.getKey())) {
-				criteria.andCondition("key=", Long.valueOf(dict.getKey()));
+			if (StringUtils.isNotBlank(dict.getKeyy())) {
+				criteria.andCondition("keyy=", Long.valueOf(dict.getKeyy()));
 			}
-			if (StringUtils.isNotBlank(dict.getValue())) {
-				criteria.andCondition("value=", dict.getValue());
+			if (StringUtils.isNotBlank(dict.getValuee())) {
+				criteria.andCondition("valuee=", dict.getValuee());
 			}
 			if (StringUtils.isNotBlank(dict.getTableName())) {
 				criteria.andCondition("table_name=", dict.getTableName());
@@ -37,7 +37,7 @@ public class DictServiceImpl extends BaseService<Dict> implements DictService {
 			}
 			example.setOrderByClause("dict_id");
 			return this.selectByExample(example);
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return new ArrayList<>();
 		}
@@ -46,7 +46,6 @@ public class DictServiceImpl extends BaseService<Dict> implements DictService {
 	@Override
 	@Transactional
 	public void addDict(Dict dict) {
-		dict.setDictId(this.getSequence(Dict.SEQ));
 		this.save(dict);
 	}
 

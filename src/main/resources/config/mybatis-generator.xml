@@ -18,10 +18,10 @@
         </commentGenerator>
         <!-- 数据库链接地址账号密码 -->
         <jdbcConnection 
-            driverClass="oracle.jdbc.driver.OracleDriver"
-            connectionURL="jdbc:oracle:thin:@localhost:1521:ORCL"
-            userId="mrbird"
-            password="123456">
+        	driverClass="com.mysql.jdbc.Driver" 
+        	connectionURL="jdbc:mysql://127.0.0.1:3306/mrbird" 
+        	userId="root" 
+        	password="123456">
         </jdbcConnection>
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
@@ -43,6 +43,10 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- 配置需要生成的表 -->
+        <!--
+			tableName="T_JOB_LOG" 对应数据库表名称；
+			domainObjectName="JobLog" 对应生成的实体类名称
+         -->
         <table tableName="T_JOB_LOG" domainObjectName="JobLog" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <generatedKey column="id" sqlStatement="oralce" identity="true"/>
         </table>

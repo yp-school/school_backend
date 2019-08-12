@@ -22,7 +22,6 @@ public class ApplicationTest {
 	@Test
 	public void test() throws Exception {
 		Job job = new Job();
-		job.setJobId(this.jobService.getSequence(Job.SEQ));
 		job.setBeanName("testTask");
 		job.setMethodName("test2");
 		job.setCronExpression("0/3 * * * * ?");
@@ -30,5 +29,6 @@ public class ApplicationTest {
 		job.setRemark("异常测试");
 		job.setCreateTime(new Date());
 		this.jobService.addJob(job);
+		System.out.println(job.getJobId());
 	}
 }

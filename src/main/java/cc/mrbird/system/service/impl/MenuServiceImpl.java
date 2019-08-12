@@ -121,7 +121,6 @@ public class MenuServiceImpl extends BaseService<Menu> implements MenuService {
 	@Override
 	@Transactional
 	public void addMenu(Menu menu) {
-		menu.setMenuId(this.getSequence(Menu.SEQ));
 		menu.setCreateTime(new Date());
 		if (menu.getParentId() == null)
 			menu.setParentId(0L);

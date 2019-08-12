@@ -6,14 +6,13 @@ import javax.persistence.*;
 
 import cc.mrbird.common.annotation.ExportConfig;
 
-@Table(name = "T_JOB_LOG")
+@Table(name = "t_job_log")
 public class JobLog implements Serializable {
 
 	private static final long serialVersionUID = -7114915445674333148L;
 
-	public static final String SEQ = "seq_job_log";
-
 	@Id
+	@GeneratedValue(generator = "JDBC")
 	@Column(name = "LOG_ID")
 	private Long logId;
 

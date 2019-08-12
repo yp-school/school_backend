@@ -1,18 +1,25 @@
 package cc.mrbird.common.xss;
 
-import org.apache.commons.lang.BooleanUtils;
-import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.BooleanUtils;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Xss攻击拦截器
@@ -24,7 +31,7 @@ public class XssFilter implements Filter {
 	// 是否过滤富文本内容
 	private static boolean IS_INCLUDE_RICH_TEXT = false;
 
-	public List<String> excludes = new ArrayList<String>();
+	private List<String> excludes = new ArrayList<>();
 
 	@Override
 	public void init(FilterConfig filterConfig) {

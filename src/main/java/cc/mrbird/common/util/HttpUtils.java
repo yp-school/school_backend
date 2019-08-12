@@ -116,7 +116,10 @@ public class HttpUtils {
 		String urlNameString = url + "?" + param;
 		try {
 			SSLContext sc = SSLContext.getInstance("SSL");
-			sc.init(null, new TrustManager[] { new TrustAnyTrustManager() }, new java.security.SecureRandom());
+			sc.init(null,
+					new TrustManager[] {
+						new TrustAnyTrustManager()
+					}, new java.security.SecureRandom());
 			URL console = new URL(urlNameString);
 			HttpsURLConnection conn = (HttpsURLConnection) console.openConnection();
 			conn.setSSLSocketFactory(sc.getSocketFactory());

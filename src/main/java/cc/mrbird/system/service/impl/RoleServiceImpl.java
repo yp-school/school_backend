@@ -73,7 +73,6 @@ public class RoleServiceImpl extends BaseService<Role> implements RoleService {
 	@Override
 	@Transactional
 	public void addRole(Role role, Long[] menuIds) {
-		role.setRoleId(this.getSequence(Role.SEQ));
 		role.setCreateTime(new Date());
 		this.save(role);
 		setRoleMenus(role, menuIds);

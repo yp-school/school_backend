@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 import cc.mrbird.common.annotation.ExportConfig;
 
-@Table(name = "T_JOB")
+@Table(name = "t_job")
 public class Job implements Serializable {
 
 	private static final long serialVersionUID = 400066840871805700L;
@@ -15,8 +15,6 @@ public class Job implements Serializable {
 	 * 任务调度参数key
 	 */
 	public static final String JOB_PARAM_KEY = "JOB_PARAM_KEY";
-
-	public static final String SEQ = "seq_job";
 
 	public enum ScheduleStatus {
 		/**
@@ -40,6 +38,7 @@ public class Job implements Serializable {
 	}
 
 	@Id
+	@GeneratedValue(generator = "JDBC")
 	@Column(name = "JOB_ID")
 	@ExportConfig(value = "任务ID")
 	private Long jobId;

@@ -44,7 +44,6 @@ public class JobLogServiceImpl extends BaseService<JobLog> implements JobLogServ
 	@Override
 	@Transactional
 	public void saveJobLog(JobLog log) {
-		log.setLogId(this.getSequence(JobLog.SEQ));
 		this.save(log);
 	}
 
