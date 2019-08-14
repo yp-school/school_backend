@@ -130,7 +130,8 @@ public class AddressUtils {
 	public static String getRealAddressByIP(String ip, ObjectMapper mapper) {
 		String address = "";
 		try {
-			address = getAddresses("ip=" + ip, "utf-8");
+//			address = getAddresses("ip=" + ip, "utf-8");
+			address = "127.0.0.1";
 			JsonNode node = mapper.readTree(address);
 			JsonNode data = node.get("data");
 			String region = data.get("region").asText();

@@ -19,7 +19,7 @@
         <!-- 数据库链接地址账号密码 -->
         <jdbcConnection 
         	driverClass="com.mysql.jdbc.Driver" 
-        	connectionURL="jdbc:mysql://127.0.0.1:3306/mrbird" 
+        	connectionURL="jdbc:mysql://127.0.0.1:3309/mrbird"
         	userId="root" 
         	password="123456">
         </jdbcConnection>

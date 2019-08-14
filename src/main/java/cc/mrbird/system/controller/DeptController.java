@@ -58,6 +58,7 @@ public class DeptController {
 	@ResponseBody
 	public List<Dept> deptList(Dept dept) {
 		try {
+			System.out.println("测试。。。。。");
 			return this.deptService.findAllDepts(dept);
 		} catch (Exception e) {
 			e.printStackTrace();
